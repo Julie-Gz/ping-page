@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="frontend challenge from frontend mentor">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Title -->
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Script -->
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main>
+    <img src="images/logo.svg" alt="Ping Logo" class="logo" fetchpriority="high" height="200" width="200">
+
+    <h1>We are launching <span>soon!</span></h1>
+
+    <p class="subscription-note">Subscribe and get notified</p>
+
+    <form action="" method="post">
+      <label for="email" class="sr-only">Email</label>
+      <div class="container">
+        <div class="input-container">
+          <input type="email" placeholder="Your email address..." id="email" name="email" aria-labelledby="email" aria-describedby="invalid-email" autocomplete="email" required>
+          <span id="invalid-email"></span>
+          <!-- Please provide a valid email address -->
+        </div>
+        <button type="submit">Notify Me</button>  
+      </div>
+    </form>
+
+    <img src="images/illustration-dashboard.png" alt="dashboard illustration" width="200" height="200" fetchpriority="high" class="dashboard">
+
+    <div class="social-media">
+      <ion-icon class="social-media-icon" name="logo-facebook"></ion-icon>
+      <ion-icon class="social-media-icon" name="logo-twitter"></ion-icon>
+      <ion-icon class="social-media-icon" name="logo-instagram"></ion-icon>
+    </div>
+
+    <p class="copyright">&copy; Copyright Ping. All rights reserved.</p>
+  </main>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Julie-Gz</a>.
+    </p>
+  </footer>
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

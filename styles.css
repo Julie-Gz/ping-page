@@ -1,0 +1,242 @@
+:root{
+    /* Colors */
+
+    /* Primary */
+    --Blue: hsl(223, 87%, 63%);
+
+    /* Secondary */
+    --PaleBlue: hsl(223, 100%, 88%);
+    --LightRed: hsl(354, 100%, 66%);
+
+    /* Neutral */
+    --Gray: hsl(0, 0%, 59%);
+    --VeryDarkBlue: hsl(209, 33%, 12%);
+    --White: hsl(0, 0%, 100%);
+
+    /* Button And Input */
+    --DesktopPadding: 0.85rem 1.5rem;
+    --MobilePadding: 0.65rem 1rem;
+
+    /* Font Weight */
+    --Bold: 700;
+    --SemiBold: 600;
+    --Light: 300;
+
+    /* Font size */
+    --FormControl: 0.7rem;
+}
+
+*, *::before, *::after{
+    font-family: 'Libre Franklin', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 20px;
+    overflow-x: hidden;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+main{
+    text-align: center;
+    max-width: 700px;
+    width: 50%;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Logo */
+.logo{
+    margin: 2rem auto;
+    width: 5em;
+}
+
+/* Header */
+h1, .subscription-note{
+    margin-bottom: 1rem;
+}
+
+h1{
+    font-weight: var(--Light);
+    color: var(--Gray)
+}
+
+h1 span{
+    font-weight: var(--Bold);
+    color: var(--VeryDarkBlue);
+}
+
+.subscription-note{
+    font-size: 18px;
+}
+
+/* Form */
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+}
+
+form{
+    margin-bottom: 2rem;
+}
+
+input, button{
+    display: inline-block;
+    padding: var(--DesktopPadding);
+    border-radius: 200px;
+    border: none;
+    outline: none;
+    font-size: var(--FormControl);
+}
+
+input:focus-visible, button:focus-visible{
+    border: 2px solid var(--PaleBlue);
+}
+
+.sr-only{
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.input-container{
+    flex: 2;
+}
+
+input{
+    width: 100%;
+    margin-right: 1rem;
+    border: 1px solid var(--Gray);
+    background-color: var(--White);
+}
+
+input:user-invalid{
+    border: 1px solid var(--LightRed);
+    position: relative;
+}
+
+#invalid-email{
+    display: block;
+    position: absolute;
+    bottom: -1.2rem;
+    left: 0;
+    font-size: var(--FormControl);
+    color: var(--LightRed);
+}
+
+button{
+    flex: 1;
+    background-color: var(--Blue);
+    color: var(--White);
+    font-weight: var(--SemiBold);
+    text-shadow: 0 0 1px var(--Gray);
+    cursor: pointer;
+    position: relative;
+}
+
+button::after{
+    position: absolute;
+    content:"";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--White);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+button:hover::after{
+    opacity: 0.3;
+}
+
+button:hover{
+    text-shadow: 0 0 3px var(--VeryDarkBlue);
+}
+
+/* Dashboard Illustration */
+.dashboard{
+    width: 100%;
+    max-width: 600px;
+    object-fit: contain;
+    margin:0 auto 2rem;
+}
+
+/* Socail Media Icons */
+.social-media{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.social-media-icon{
+    color:var(--Blue);
+    border: 1px solid var(--Gray);
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.social-media-icon:not(:last-child){
+    margin-right: 0.8rem;
+}
+
+/* Copyright */
+.copyright{
+    font-size: 12px;
+    color: var(--Gray);
+    margin-bottom: 0.5rem;
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 850px){
+    main{
+        width: 70%;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+
+    .input-container, button{
+        flex: 1;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    main{
+        width: 90%;
+    }
+
+}
+
+/* Attribution */
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
