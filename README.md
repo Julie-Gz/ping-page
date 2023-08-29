@@ -1,14 +1,6 @@
 # Frontend Mentor - Ping coming soon page
 
-![Design preview for the Ping coming soon page coding challenge](./design/desktop-preview.jpg)
-
-## Welcome! 👋
-
-Thanks for checking out this front-end coding challenge.
-
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
-
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+![Design preview for the Ping coming soon page coding challenge](./screenshot/Frontend%20Mentor%20Ping%20coming%20soon%20page-Desktop.png)
 
 ## The challenge
 
@@ -25,72 +17,72 @@ Your users should be able to:
 	- The `input` field is empty. The message for this error should say *"Whoops! It looks like you forgot to add your email"*
 	- The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Please provide a valid email address"*
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Links
 
-## Where to find everything
+- Solution URL: (https://www.frontendmentor.io/solutions/html-css-javascript-responsive-design-accessibility-EOEQ8AgDgi#comment-64ee65f24003acb43a25c2b3)
+- Live Site URL: (https://julie-gz.github.io/ping-page/)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Built with
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- JavaScript
+- Ionicons (https://ionicons.com)
+- Lighthouse (chrome tool)
+- Form Troubleshooter (chrome extension)
+- Pesticide (chrome extension)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+### What I learned
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+- How to improve the performance of a page by recuding CLS(Cumulative Layout Shift) and LCP(Largest Content Paint):
+  In most pages the largest content is an image. One of the ways to ensure the image is as performant as possible is to include a width and height in the img tag and set the max-width to 100% in css. 
+  Using the fetchpriority attribute on images that are at the top of a page will give the user's a better experience? This is becuase it reduces CLS and LCP
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+  ```html
+      <img src="images/logo.svg" alt="Ping Logo" class="logo" fetchpriority="high" height="200" width="200">
+  ```
 
-## Building your project
+- Ensuring Keyboard navigation by adding Focus style 
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+  ```css
+  input:focus-visible, button:focus-visible{
+    border: 2px solid var(--PaleBlue);
+	}
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+- Using the blur event to listen when a user is inputing data and using the user-invalid property for styling:
+  I used to use the :invalid property to apply the styles for when the user input is invalid, however I found that using :invalid made them the default style for the input field. :user-invalid solves this issue because it only applies after the user focuses on the field and the leaves it. If the input is invalid THEN the styles apply, if not, the original style remains.
 
-## Deploying your project
+  ```css
+  input:user-invalid{
+      border: 1px solid var(--LightRed);
+      position: relative;
+  }
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+- I also learned that the blur event. The blur event fires when an element loses focus (Learn Forms: JavaScript)
+  This ensures the error message is displayed after the user leaves the input field for better experience.	
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+	```js
+	  userEmail.addEventListener("blur", function (e) {
+    	e.preventDefault();
+    	if (userEmail.validity.valid) {
+    	    userEmail.style.borderColor = "var(Gray)";
+    	    errorMessage.textContent = "";
+    	} else {
+    	    userEmail.style.borderColor = "var(--LightRed)";
+    	    errorMessage.textContent = "Please provide a valid email address";
+    	}
+	});
+	```
+### Continued development
+- There's still a lot I need to learn about form validation such as using the fecth API and the onsubmit event, data privacy and so on.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+### Useful resources
 
-## Create a custom `README.md`
+- (https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid) - This helped with styling the input field in case of an invalid input.
+- (https://web.dev/learn/forms/) - This website covers all there is to learn about forms, from styling, accessibility,form validation, and so much more. Highly recommended
+- (https://dequeuniversity.com/rules/axe/4.6/role-img-alt?application=axeAPI) - Explains how to properly use elements with the role="img" to improve accessiblity.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+## Acknowledgments
+- A huge thank you to Atif Iqbal (@atif-dev) for giving me tips on how to improve my code.

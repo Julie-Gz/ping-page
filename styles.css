@@ -14,8 +14,8 @@
     --White: hsl(0, 0%, 100%);
 
     /* Button And Input */
-    --DesktopPadding: 0.85rem 1.5rem;
-    --MobilePadding: 0.65rem 1rem;
+    --DesktopPadding: 1em 1.5em;
+    --MobilePadding: 0.65em 1em;
 
     /* Font Weight */
     --Bold: 700;
@@ -61,13 +61,13 @@ img{
 
 /* Logo */
 .logo{
-    margin: 2rem auto;
+    margin: 2em auto;
     width: 5em;
 }
 
 /* Header */
 h1, .subscription-note{
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 h1{
@@ -95,7 +95,7 @@ h1 span{
 }
 
 form{
-    margin-bottom: 2rem;
+    margin-bottom: 2em;
 }
 
 input, button{
@@ -179,7 +179,7 @@ button:hover{
     width: 100%;
     max-width: 600px;
     object-fit: contain;
-    margin:0 auto 2rem;
+    margin:0 auto 2em;
 }
 
 /* Socail Media Icons */
@@ -187,25 +187,32 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 .social-media-icon{
     color:var(--Blue);
     border: 1px solid var(--Gray);
-    padding: 0.5rem;
+    padding: 0.5em;
     border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
-.social-media-icon:not(:last-child){
-    margin-right: 0.8rem;
+.social-media-icon:hover{
+    background-color: var(--Blue);
+    color: var(--White);
+}
+
+.social-media-link:not(:last-child){
+    margin-right: 0.8em;
 }
 
 /* Copyright */
 .copyright{
     font-size: 12px;
     color: var(--Gray);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 
